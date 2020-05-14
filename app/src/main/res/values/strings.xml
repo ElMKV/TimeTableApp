@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">TestNavTwo</string>
+    <string name="app_name">Авиатехникум</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="NumArray">1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6.</string>
+    <string name="AboutApp">Это приложение срозданно специально для Aвиационного техникума имени A.Д.Швецова, для более удобного и наглядного просмотра замен. Так же существует возможность создания и просмотра расписания вашей группы.
+        \n ПИ 16-2 Маковеев Илья
+    </string>
 </resources>

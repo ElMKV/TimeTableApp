@@ -4,44 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
 
 
-    android:id="@+id/homeFr"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/colorPrimary">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
 
         android:layout_width="match_parent"
-        android:layout_height="232dp"
-        android:alwaysDrawnWithCache="false"
-        android:animateLayoutChanges="true"
-        android:background="#FFFFFF">
+        android:layout_height="192dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
             app:toolbarId="@+id/toolbar">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
                 android:layout_marginBottom="5dp"
+                android:background="@color/colorPrimary"
                 android:orientation="vertical"
                 android:paddingBottom="20dp">
-
-                <TextView
-                    android:id="@+id/dataTextVie"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textColor="#2E3CFE"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/fileNameTextView"
@@ -50,7 +41,17 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text="Название файла "
-                    android:textColor="#2E3CFE" />
+                    android:textColor="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/dataTextVie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Дата"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -58,13 +59,15 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/rw"
         android:layout_width="match_parent"
-
-
         android:layout_height="match_parent"
+
+
         android:background="@drawable/radius_item"
+        android:backgroundTint="@color/colorAccent"
+        android:elevation="4dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
 
         <TextView
             android:id="@+id/textViewMain"
@@ -73,7 +76,7 @@
             android:padding="20dp"
             android:text="Выбери интересующие тебя замены на сайте "
             android:textAlignment="viewStart"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp" />
     </androidx.core.widget.NestedScrollView>
 

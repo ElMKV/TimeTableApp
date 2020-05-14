@@ -10,7 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -78,6 +81,16 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         webView = view.findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
+        webView.getSettings().setDisplayZoomControls(false); // disable the default zoom controls on the page
+
+
+
+
+
 
 
         webView.loadUrl("http://www.permaviat.ru/raspisanie-zamen/");
@@ -98,6 +111,8 @@ public class DashboardFragment extends Fragment {
                         Log.v(TAG, "Permission is revoked");
                         //requesting permissions.
                         ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                        downloadDialog(url, userAgent, contentDisposition, mimetype);
+
 
                     }
                 } else {
@@ -124,6 +139,7 @@ public class DashboardFragment extends Fragment {
         builder.setTitle("Загрузка");
         //message of alertdialog
         builder.setMessage("Вы хотите сохранить " + filenameFromWeb);//Имя файла расаеписания
+
         //if Yes button clicks.
         builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
@@ -178,12 +194,16 @@ public class DashboardFragment extends Fragment {
     };
 
     private class MyWebViewClient extends WebViewClient {
+
+
+
+
         @Override
         public void onPageStarted(final WebView myWebView, final String url,
                                   final Bitmap favicon) {
-            ProgressBar bar = (ProgressBar) myWebView.findViewById(R.id.progressBar);
 
-            bar.setVisibility(View.VISIBLE);
+
+
             super.onPageStarted(myWebView, url, favicon);
 
         }
@@ -196,6 +216,7 @@ public class DashboardFragment extends Fragment {
         public void onPageFinished(WebView webView, String url) {
             super.onPageFinished(webView, url);
             progressBar.setVisibility(View.GONE);
+
         }
     }
 

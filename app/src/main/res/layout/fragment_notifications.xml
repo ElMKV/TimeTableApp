@@ -1,21 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:background="@color/colorPrimary">
 
-    <EditText
-        android:id="@+id/editText"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textColor="#484848" />
-</LinearLayout>
+        android:layout_height="300dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="false"
+        android:padding="5dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar">
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|right"
+                android:autoText="false"
+                android:background="?android:attr/textSelectHandleRight"
+                android:backgroundTint="#00FFFFFF"
+                android:breakStrategy="high_quality"
+                android:elegantTextHeight="false"
+                android:hapticFeedbackEnabled="true"
+                android:onClick="AboutView"
+                android:text="?"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp" />
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        android:layout_gravity="center"
+        android:background="@drawable/radius_item"
+        android:backgroundTint="@color/colorAccent"
+        android:padding="5dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <TabHost
+            android:id="@+id/tabHost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    style="@android:style/Widget.Holo.Light.TabWidget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/pnTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextPn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:inputType="textMultiLine"
+                            android:text="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/vtTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextVt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:inputType="textMultiLine"
+                            android:text="@string/NumArray"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/srTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextSr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:hint="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                            android:inputType="textMultiLine"
+                            android:text="@string/NumArray"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/chTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextCh"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:hint="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                            android:includeFontPadding="false"
+                            android:inputType="textMultiLine"
+                            android:text="@string/NumArray"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ptTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextPt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:hint="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                            android:includeFontPadding="false"
+                            android:inputType="textMultiLine"
+                            android:text="@string/NumArray"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/sbTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/editTextSb"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:fontFamily="@font/top_font"
+                            android:gravity="start|top"
+                            android:hint="1.\n\n2.\n\n3.\n\n4.\n\n5.\n\n6."
+                            android:includeFontPadding="false"
+                            android:inputType="textMultiLine"
+                            android:text="@string/NumArray"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="30sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+            </LinearLayout>
+        </TabHost>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

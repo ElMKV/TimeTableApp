@@ -4,9 +4,11 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -21,13 +23,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testnavtwo.ui.dashboard.DashboardFragment;
 import com.example.testnavtwo.ui.dashboard.DashboardViewModel;
 import com.example.testnavtwo.ui.home.HomeFragment;
+import com.example.testnavtwo.ui.notifications.NotificationsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -37,6 +42,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager.widget.ViewPager;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
@@ -58,13 +64,12 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
     private WebView webview;
     public String textOnWebActivity;
     public String filename;
+    private TabHost tabHost;
 
     @Override
     public void onFragment1DataListener(String string) {
 
-        Toast toast = Toast.makeText(getApplicationContext(),
-                "Нажмите на дом для обновления списка", Toast.LENGTH_SHORT);
-        toast.show();
+        //принятие название файла из navigation_dashboard фрагмента
 
         textOnWebActivity = string;
 
@@ -86,6 +91,21 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -94,6 +114,14 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
     private void readStorage() {
 
         int permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+    }
+
+
+    public void AboutView(View view)
+    {
+        Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+        startActivity(intent);
+
     }
 
 
