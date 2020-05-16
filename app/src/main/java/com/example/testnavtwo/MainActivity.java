@@ -92,23 +92,29 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Intent intent =new Intent(getApplicationContext(),splashScreenActivity.class);
+                   startActivity(intent);
 
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private void readStorage() {

@@ -15,13 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-
         android:usesCleartextTraffic="true"
         app:menu="@menu/bottom_nav_menu">
-        <activity
-
-            android:name=".firstStepActivity">
-        </activity>
+        <activity android:name=".splashScreenActivity"></activity>
+        <activity android:name=".introActivity" />
+        <activity android:name=".firstStepActivity" />
         <activity android:name=".AboutActivity" />
         <activity
             android:name=".MainActivity"
