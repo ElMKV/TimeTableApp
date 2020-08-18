@@ -104,7 +104,7 @@ public class firstStepActivity extends AppCompatActivity {
                 textViewDis.setText("Магическим образом лишние файлы изчезнут");
 
                 buttonNext.setText("Начать");
-                int i = 0;
+
 
 
                 break;
