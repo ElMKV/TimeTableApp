@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
         textOnWebActivity = string;
 
 
+
     }
 
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 0;
@@ -92,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements DashboardFragment
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
-        Intent intent =new Intent(getApplicationContext(),splashScreenActivity.class);
-                   startActivity(intent);
+
+
 
 
 

@@ -10,8 +10,36 @@
     <WebView
         android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:animationCache="false"
+        android:elevation="10dp">
 
     </WebView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/radius_item"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="10dp"
+        android:foregroundGravity="bottom"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:elevation="10dp"
+        android:max="100"
+        android:visibility="visible" />
 
 </FrameLayout>

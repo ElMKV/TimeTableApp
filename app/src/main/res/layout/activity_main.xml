@@ -20,7 +20,6 @@
         android:stateListAnimator="@android:animator/fade_in"
         android:theme="@style/Widget.Design.BottomNavigationView"
         app:backgroundTint="@color/colorPrimary"
-        app:elevation="10dp"
         app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@color/colorAccent"
         app:itemTextColor="@color/colorAccent"
@@ -28,7 +27,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        tools:visibility="visible" />
+        tools:visibility="visible">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <fragment
         android:id="@+id/nav_host_fragment"

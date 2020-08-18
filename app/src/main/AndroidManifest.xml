@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
+
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
@@ -17,12 +21,11 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true"
         app:menu="@menu/bottom_nav_menu">
-        <activity android:name=".splashScreenActivity"></activity>
-        <activity android:name=".introActivity" />
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".firstStepActivity" />
         <activity android:name=".AboutActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".splashScreenActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
