@@ -1,0 +1,33 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector android:alpha="0.83" android:height="764dp"
+            android:viewportHeight="764" android:viewportWidth="496"
+            android:width="496dp" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+            <path android:fillColor="#E5E5E5" android:pathData="M0,0h496v764h-496z"/>
+            <path android:fillColor="#948E8E" android:pathData="M150,0L346,0A150,150 0,0 1,496 150L496,614A150,150 0,0 1,346 764L150,764A150,150 0,0 1,0 614L0,150A150,150 0,0 1,150 0z"/>
+            <path android:fillColor="#4186C6" android:pathData="M176,39L320,39A150,150 0,0 1,470 189L470,574A150,150 0,0 1,320 724L176,724A150,150 0,0 1,26 574L26,189A150,150 0,0 1,176 39z"/>
+            <path android:fillColor="#C4C4C4"
+                android:pathData="M176,40.5L320,40.5A148.5,148.5 0,0 1,468.5 189L468.5,574A148.5,148.5 0,0 1,320 722.5L176,722.5A148.5,148.5 0,0 1,27.5 574L27.5,189A148.5,148.5 0,0 1,176 40.5z"
+                android:strokeColor="#A29B9B" android:strokeWidth="3"/>
+            <path android:fillColor="#00000000"
+                android:pathData="M164,640L333,640"
+                android:strokeColor="#A29B9B" android:strokeWidth="6"/>
+        </vector>
+    </aapt:attr>
+
+    <target android:name="shackle">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="1000"
+                android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+                android:propertyName="translateY"
+                android:repeatCount="infinite"
+                android:valueFrom="0"
+                android:valueTo="-2"
+                android:valueType="floatType" />
+        </aapt:attr>
+    </target>
+</animated-vector>

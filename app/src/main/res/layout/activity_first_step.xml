@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".firstStepActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_above="@id/hiTextView"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="false"
+        android:accessibilityTraversalAfter="@id/hiTextView"
+        app:srcCompat="@mipmap/plane" />
+
+    <TextView
+        android:id="@+id/hiTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:allowUndo="false"
+        android:gravity="center"
+        android:text="Привет!"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewDis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@id/hiTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="false"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:autoText="false"
+        android:elegantTextHeight="true"
+        android:gravity="center"
+        android:text="Хочешь увидеть магию?"
+        android:textColor="@color/textTwo"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDis"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <View
+            android:id="@+id/viewDot1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot3"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot4"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot5"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot6"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+
+        <View
+            android:id="@+id/viewDot7"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dot" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/radius_btt"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="nextImage"
+        android:text="Далее"
+        android:textColor="#FFFFFF" />
+
+
+</RelativeLayout>
