@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.webkit.WebView;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,10 +49,14 @@ public class HomeFragment extends Fragment {
     private TextView textViewMain;
     private TextView fileNameTextView;
     private TextView dataTextView;
-    private WebView webView;
+
+
     public String filename;
     final String SAVED_TEXTDocx = "SaveTextDocx";
     SharedPreferences sPref;
+
+
+
 
 
 
@@ -81,13 +87,24 @@ public class HomeFragment extends Fragment {
 
 
 
+
+
         return homeView;
     }
 
     @Override
     public void onStart() {
-        //Для сохранения состояния активити
 
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+
+        textViewMain.setText(preferences.getString(SAVED_TEXTDocx,"Перейди на сайт и скачай интересующую тебя замену пар"));
+
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        //Для сохранения состояния активити
         sPref = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
         boolean hasVisited = sPref.getBoolean("hasVisited", false);//Переменная для получения значения первого запуска приложения
 
@@ -102,6 +119,7 @@ public class HomeFragment extends Fragment {
         }
         String savedTextEditTextDocxFile = sPref.getString(SAVED_TEXTDocx, "Перейди на сайт и скачай интересующую тебя замену пар");
 
+
         //Получение даты
         SimpleDateFormat sdf = new SimpleDateFormat("dd-EEEE-yyyy");
         String date = sdf.format(Calendar.getInstance().getTime());
@@ -111,6 +129,8 @@ public class HomeFragment extends Fragment {
 
         if (xxx.textOnWebActivity != null)
         {
+
+
             filename = xxx.textOnWebActivity;
             System.setProperty("org.apache.poi.javax.xml.stream.XMLInputFactory", "com.fasterxml.aalto.stax.InputFactoryImpl");
             System.setProperty("org.apache.poi.javax.xml.stream.XMLOutputFactory", "com.fasterxml.aalto.stax.OutputFactoryImpl");
@@ -118,7 +138,11 @@ public class HomeFragment extends Fragment {
             try (FileInputStream fileInputStream = new FileInputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename))) {
 
 
+
+
                 // открываем файл и считываем его содержимое в объект XWPFDocument
+
+
                 XWPFDocument docxFile = new XWPFDocument(OPCPackage.open(fileInputStream));
                 XWPFHeaderFooterPolicy headerFooterPolicy = new XWPFHeaderFooterPolicy(docxFile);
 
@@ -133,27 +157,27 @@ public class HomeFragment extends Fragment {
                 DocxText.replaceAll("[\\s&&[^\r?\n]]{2,}", " ")
                         .replaceAll("( ?(\r\n)){2,}", "\r\n").replaceAll("( ?\n){2,}", "\n")
                         .replaceAll("^ ", "");
+
+
+
                 textViewMain.setText(DocxText);
+                System.out.println(DocxText);
+                SharedPreferences preferences = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+
+
+
+                SharedPreferences.Editor ed = preferences.edit();
+                ed.putString(SAVED_TEXTDocx, textViewMain.getText().toString());
+
+
+
+                ed.commit();
+
+
 
                 File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename);
-
-                if(file.delete())
-                {
-                    Toast toast = Toast.makeText(getContext(),"Мы удалили " + filename ,Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-                else
-                {
-                    Toast toast = Toast.makeText(getContext(),"Файл не удален",Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-
-
-
-
-
-
-
+                file.delete();
+                System.out.println(filename);
 
             } catch (FileNotFoundException e) {
 
@@ -169,24 +193,17 @@ public class HomeFragment extends Fragment {
         {
             textViewMain.setText(savedTextEditTextDocxFile);
         }
+        super.onResume();
 
 
-        super.onStart();
+
+
 
     }
     @Override
     public void onStop() {
         super.onStop();
-        SharedPreferences preferences = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
 
-
-
-        SharedPreferences.Editor ed = preferences.edit();
-        ed.putString(SAVED_TEXTDocx, textViewMain.getText().toString());
-
-
-
-        ed.commit();
 
     }
 
